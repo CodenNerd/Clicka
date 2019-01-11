@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Welcome to Clicka</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0px;
+        padding: 0px;
+        font-family: Calibri;
+        color: grey;
+      }
+      #navbar {
+        box-shadow: -5px 1px 5px grey;
+        min-height: 60px;
+        width: 100%;
+        padding-left: 3%;
+        vertical-align: middle;
+        position: fixed;
+        background: #ffffff;
+        z-index: 1;
+      }
+      .logo {
+        font-size: 30px;
+        color: grey;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 10px auto;
+      }
+      .logo > b {
+        color: darkorange;
+        font-weight: bolder;
+      }
+      .logo > i {
+        color: darkgreen;
+      }
+      .q-button {
+        font-size: 20px;
+        background-color: darkorange;
+        color: white;
+        padding: 20px 50px;
+        float: right;
+        font-weight: bolder;
+        cursor: default;
+      }
+      .q-button:hover {
+        opacity: 0.9;
+      }
+
+      .q-button-drop {
+        background-color: white;
+        max-width: 200px;
+        padding: 0px;
+        box-shadow: 2px 2px 3px grey;
+        position: absolute;
+        right: 0px;
+        top: 65px;
+        display: none;
+      }
+      .q-button-wrapper:hover .q-button-drop {
+        display: block;
+      }
+      .q-button-drop > a {
+        display: block;
+        text-decoration: none;
+        color: grey;
+        padding: 5px 35px;
+        border-bottom: 1px solid lightgrey;
+      }
+      .q-button-drop > a:hover {
+        background-color: rgb(241, 241, 241);
+      }
+      .reg {
+        float: right;
+        margin-right: 5%;
+        margin-top: 25px;
+      }
+      .reg > a {
+        color: grey;
+        text-decoration: none;
+        display: inline-block;
+        margin-right: 20px;
+      }
+      .reg > a:hover {
+        color: dimgray;
+        font-weight: bold;
+      }
+      #welcome-overlay {
+        width: 100%;
+       min-height: 700px;
+        background: rgba(0,0,0,0.8);
+        padding-top: 200px;
+     }
+      #welcome {
+        background: url("./forblinds/bulbs.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-height: 700px;
+        min-width: 100%;
+        padding: 0px;
+        text-align: center;
+        transition: 2s;
+      }
+      
+      #top-space {
+        min-height: 15px;
+      }
+      #welcome h1 {
+        color: lightgrey;
+        font-size: 60px;
+        font-weight: bolder;
+      }
+      #logo {
+        font-size: 50px;
+        font-weight: bolder;
+      }
+      #levelsleft,
+      #levelsright {
+        display: inline-block;
+        min-height: 150px;
+        min-width: 100px;
+        position: relative;
+        top: -120px;
+        z-index: -1;
+      }
+      #levelsleft {
+        background: url("../new/levelsleft.png");
+        left: 15%;
+        float: left;
+      }
+      #levelsright {
+        background: url("../new/levelsright.png");
+        right: 15%;
+        float: right;
+      }
+      #discover {
+        background: transparent;
+        padding: 10px 50px;
+        border: 1px solid grey;
+        border-radius: 3px;
+        outline: none;
+        color: grey;
+        transition: 1s;
+        z-index: +1;
+      }
+      #discover:hover {
+        background: darkorange;
+        color: white;
+        border: 1px solid white;
+      }
+      #down-arrow {
+        background-color: #ffffff;
+        border: 2px dotted dimgray;
+        width: 50px;
+        height: 50px;
+        margin: 30px;
+        border-radius: 100%;
+        box-shadow: 5px 5px 10px black;
+        color: grey;
+        outline: none;
+        transition: 5s;
+      }
+      #down-arrow:hover {
+        animation: rotate-span 1s ease-out forwards;
+      }
+
+      @keyframes rotate-span{
+        from{ transform: rotateZ(0deg); box-shadow: 0px 0px 0px transparent}
+        to{ transform: rotateZ(360deg); box-shadow: 5px 5px 10px black;}
+      }
+      #make-websites {
+        min-height: 500px;
+        background-color: rgb(250, 250, 250);
+      }
+
+      section>.card{
+        background: white;
+        box-shadow: 4px 1px 4px grey;
+        min-height: 500px;
+        display: flex;
+        margin-top:5px;
+        width: 90%;
+        flex-wrap: wrap;
+      }
+      #make-websites>.card{
+        padding: 0px 0px 0px 10%;
+      }
+      #make-websites>.card:hover{
+        animation: slide-left 1s ease-in-out alternate;
+      }
+
+      @keyframes slide-left{
+       0%{
+          margin-left: 0px;
+        }
+      50%{
+        margin-left: -20px;
+      }
+      100%{
+        margin-left: 0px;
+      }
+      }
+      section>.card>h1{
+        flex: 1;
+
+      }
+      section>.card>span>span{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      section>.card>span{
+        flex: 1;
+        display: flex;
+      }
+      section>.card>span>img{
+        flex: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <span class="logo"> Click<b>a</b> </span>
+
+      <span class="q-button-wrapper">
+        <span class="q-button"> Quick Order </span>
+        <div class="q-button-drop">
+          <a href=""> Order a Website</a> <a href=""> Order an App</a>
+          <a href=""> Order Other Software</a>
+          <a href=""> Order Code Snippets</a>
+        </div>
+      </span>
+
+      <span class="reg"> <a href="#">Register</a> <a href="#">Login</a> </span>
+    </div>
+    <div id="top-space"></div>
+    
+    <section id="welcome">
+      <div id="welcome-overlay">
+<h1>
+        You're just a <span id="logo" class="logo">Click<b> a</b></span>way from the <span class="digital">digital</span> level
+      </h1>
+      <span id="levelsleft"> </span> <span id="levelsright"> </span>
+      <button id="discover">Discover Click<b>a</b></button>
+            <br /><br /><br /><br /><br />
+      <button id="down-arrow" class="da">v</button>
+
+    </div>
+    </section>
+    <section id="make-websites" class="www"><div class="card">
+      <span>
+      <h1 class="what-we-do">GET BEAUTIFUL STANDARD WEBSITES</h1>
+      <span><p></p></span>
+      </span>
+      <span>
+        <img src="forblinds/getwireddb.jpg" alt="Make Websites">
+      </span>
+      </div>
+    </section>
+
+    <section id="make-websitess">
+      <h1 class="what-we-do">Create your own Android Applications with us</h1>
+      <span>
+        <img src="" alt="Make Apps">
+      </span>
+    </section>
+
+
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+  $(document).ready(function(){
+      $('.da').click(function(){
+        $('html, body').animate({
+          scrollTop: $(".www").offset().top
+        }, 2000);
+        })
+    });
+  
+  </script>
+
+  </body>
+</html>

@@ -197,7 +197,26 @@
       #make-websites>.card:hover{
         animation: slide-left 1s ease-in-out alternate;
       }
+      #make-app>.card{
+        margin-left: 10%;
+        box-shadow: -4px 1px 4px grey;
+        padding: 0px 10% 0px 0px;
 
+      }
+
+      #make-app>.card:hover{
+        animation: slide-right 1s ease-in-out alternate;
+
+      }
+      #make-app>.card>span img{
+        box-sizing: border-box;
+        max-width: 100%;
+      }
+      #make-app-img-span{
+        box-shadow: -150px 0px 200px 0px white inset;
+        background-image: url('forblinds/dataprotection.jpg');
+        flex:2;
+      }
       @keyframes slide-left{
       0%{
           margin-left: 0px;
@@ -208,6 +227,19 @@
       100%{
         margin-left: 0px;
       }
+      }
+
+      @keyframes slide-right{
+      0%{
+          margin-right: 0px;
+          transform: translateX(0px)
+        }
+      50%{
+        transform: translateX(+20px);
+      }
+      100%{
+        transform: translateX(0px)
+        }
       }
       section>.card>span>h1{
         flex: 1;
@@ -225,7 +257,7 @@
         display: flex;
         justify-content: space-evenly;
       }
-      #make-websites>.card>span>span>p{
+      #make-websites>.card>span>span>p,  #make-app>.card>span>span>p{
         color: grey;
         font-style: oblique;
         text-align: justify;
@@ -240,16 +272,15 @@
       }
       .card-buttons{
         border: 1px solid white;
-        margin: 10px;
+        margin: 20px auto;
         color: #ffffff;
         padding: 10px 10%;
         border-radius: 5px;
         outline: none;
         height: 40px;
       }
-
       .github-button{
-        background: rgba(0, 0, 0, 0.8);
+        background: rgb(2, 87, 121);
         transition: 1s;
       }
       .order-button{
@@ -257,7 +288,7 @@
         transition: 1s;
       }
       .github-button:hover, .order-button:hover{
-        animation: wave-github-button 1s ease-in-out forwards;
+        animation: wave-github-button 0.4s ease-in-out forwards;
       }
       @keyframes wave-github-button{
         0%{ background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8), dimgray)}
@@ -311,6 +342,20 @@
       </div>
     </section>
 
+    <section id="make-app" class="www"><div class="card">
+        <span class="img-span" id="make-app-img-span">
+          <!--  <img src="forblinds/dataprotection.jpg" alt="Make Websites"> -->
+          </span>
+      <span>
+      <h1 class="what-we-do">WE'LL MAKE YOU THE APPS YOU WANT</h1>
+      <span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></span>
+      <span><button class="card-buttons github-button">Our GitHub</button><button class="card-buttons order-button"> Order A Mobile App</button></span>
+    </span>
+      
+      </div>
+    </section>
+    
+    <!--
     <section id="make-websitess">
       <h1 class="what-we-do">Create your own Android Applications with us</h1>
       <span>
@@ -318,9 +363,11 @@
       </span>
     </section>
 
+  -->
 
-
-
+<br/>
+<br/>
+<br/>
     <script
   src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script>

@@ -298,6 +298,15 @@
         80%{ background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.8), dimgray,rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8))}
         100%{ background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8), dimgray,rgba(0, 0, 0, 0.8))}
       }
+
+      #canvas {
+            background: white;
+            width: 100%;
+           height: 500px;
+      }
+      #canvas-span{
+        flex: 2;
+      }
     </style>
   </head>
 
@@ -354,6 +363,20 @@
       
       </div>
     </section>
+
+    <section id="make-websites" class="www"><div class="card">
+      <span>
+      <h1 class="what-we-do">Make Other Software With Us</h1>
+      <span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></span>
+      <span><button class="card-buttons github-button">Our GitHub</button><button class="card-buttons order-button"> Order A Website</button></span>
+    </span>
+      <span id="canvas-span">
+        <canvas id="canvas" width="800" height="550px">
+
+        </canvas>
+      </span>
+      </div>
+    </section>
     
     <!--
     <section id="make-websitess">
@@ -380,6 +403,113 @@
     });
   
   </script>
+<script>
 
+  let c = document.getElementById("canvas").getContext("2d");
+
+  const arc = () => {
+      let d = new Date();
+      let sec = d.getSeconds();
+      sec = sec === 0 ? 0.01 : sec;
+      let min = d.getMinutes();
+      min = min === 0 ? 0.01 : min;
+      let hr = d.getHours();
+      let pmhr = hr - 12;
+      hr = hr > 12 ? pmhr : hr;
+      hr = hr === 0 ? 0.01 : hr;
+      c.clearRect(0, 0, c.canvas.width, c.canvas.height);
+      c.lineCap = "round";
+      c.lineWidth = 10;
+
+      c.beginPath();
+      c.strokeStyle = "lightgrey";
+      c.arc(400, 250, 200, 1.5 * Math.PI, (sec * (Math.PI / 30)) + (1.5 * Math.PI), false);
+      c.stroke();
+
+      c.beginPath();
+      c.strokeStyle = "grey";
+      c.arc(400, 250, 180, 1.5 * Math.PI, (min * (Math.PI / 30)) + (1.5 * Math.PI), false);
+      c.stroke();
+
+      c.beginPath();
+      c.strokeStyle = "cadetblue";
+      c.arc(400, 250, 160, 1.5 * Math.PI, (hr * (Math.PI / 6)) + (1.5 * Math.PI), false);
+      c.stroke();
+
+      // clock center
+      c.beginPath();
+      c.strokeStyle = "orange";
+      c.arc(400, 250, 10, 0, 2 * Math.PI, false);
+      c.stroke();
+      // hours hand
+      c.translate(400, 250);
+      c.rotate((hr * (Math.PI / 6)) + (2 * 1.5 * (Math.PI)));
+      c.translate(-400, -250);
+
+
+      c.beginPath();
+      c.fillStyle = "cadetblue";
+      c.fillRect(395, 230, 10, 135);
+
+      c.translate(400, 250);
+      c.rotate(-(hr * (Math.PI / 6)) - (2 * 1.5 * (Math.PI)));
+      c.translate(-400, -250);
+
+      // minutes hand
+      c.translate(400, 250);
+      c.rotate((min * (Math.PI / 30)) + (2 * 1.5 * (Math.PI)));
+      c.translate(-400, -250);
+
+      c.beginPath();
+      c.fillStyle = "grey";
+      c.fillRect(397, 232, 6, 165);
+
+      c.translate(400, 250);
+      c.rotate(-(min * (Math.PI / 30)) - (2 * 1.5 * (Math.PI)));
+      c.translate(-400, -250);
+
+      // seconds hand
+      c.translate(400, 250);
+      c.rotate((sec * (Math.PI / 30)) + (2 * 1.5 * (Math.PI)));
+      c.translate(-400, -250);
+
+      c.beginPath();
+      c.fillStyle = "lightgrey";
+
+      c.fillRect(399, 210, 2, 190);
+      c.translate(400, 250);
+      c.rotate(-(sec * (Math.PI / 30)) - (2 * 1.5 * (Math.PI)));
+      c.translate(-400, -250);
+
+
+      // clock center
+      c.beginPath();
+      c.strokeStyle = "white";
+      c.arc(400, 250, 4, 0, 2 * Math.PI, false);
+      c.stroke();
+
+
+      const action = (e) => {
+          let mouseX = e.clientX - 200;
+          let mouseY = e.clientY - 5;
+          c.beginPath();
+          c.strokeStyle = "rgb(66, 35, 2)";
+          c.arc(mouseX, mouseY, 0.01, 0, 0.05, false);
+          c.font = "15px Calibri";
+          c.fillStyle = "orange";
+
+          c.fillText("Clicka Clock", mouseX, mouseY)
+          //c.stroke();
+          //setTimeout(action(e),900);
+      };
+      let mousePos = document.addEventListener('click', action);
+
+  }
+  let interval = setInterval(arc, 1000);
+  window.onload = interval;
+
+
+  // https://codepen.io/CodenNerd/pen/MZpPVr
+</script>
   </body>
 </html>

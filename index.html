@@ -279,7 +279,7 @@
       section>.card>span>img{
         flex: 1;
       }
-      .card-buttons{
+      .card-buttons, .desc>button, .visit-blog{
         border: 1px solid white;
         margin: 20px auto;
         color: #ffffff;
@@ -288,13 +288,11 @@
         outline: none;
         height: 40px;
       }
-      .github-button{
+      .github-button, .desc>button, .visit-blog{
         background: rgb(2, 87, 121);
-        transition: 1s;
       }
       .order-button{
         background:darkorange;
-        transition: 1s;
       }
       .github-button:hover, .order-button:hover{
         animation: wave-github-button 0.4s ease-in-out forwards;
@@ -316,6 +314,61 @@
       #canvas-span{
         flex: 2;
       }
+
+      div.img {
+    margin: 25px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 25%;
+}
+
+div.img:hover {
+    border: 1px dotted grey;
+}
+
+div.img img {
+    width: 100%;
+    height: 200px;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: justify;
+}
+
+#from-our-blog{
+  text-align: center;
+}
+#from-our-blog>h1{
+  flex: 1;
+}
+#from-our-blog>div{
+display: flex;
+justify-content:center;
+}
+
+.desc>button{
+  float: right;
+  border: 1px solid rgb(2, 87, 121);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.desc>button:hover, .visit-blog{
+  background: transparent;
+  color: rgb(2, 87, 121);
+}
+.visit-blog{
+  width: 50%;
+  border: 1px solid rgb(2, 87, 121);
+  cursor: pointer;
+  box-shadow: 5px 5px 20px grey;
+  transition: 0.5s;
+}
+
+.visit-blog:hover{
+  background: rgb(2, 87, 121);
+  color: white;
+}
     </style>
   </head>
 
@@ -408,6 +461,58 @@
     </section>
 
   -->
+<br/><br/><br/>
+  <section id="from-our-blog">
+    <h1>
+      Latest From Clicka Blog
+    </h1>
+<div>
+  <div class="img">
+    <a target="_blank" href="fjords.jpg">
+      <img src="forblinds/galaxy.jpg" alt="Fjords" width="300" height="200">
+    </a>
+    <div class="desc">
+      <h2>Trends in Technology</h2>
+      <h5>Jan 18, 2019</h5>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <button>Read this</button>
+
+    </div>
+    </div>
+  
+  <div class="img">
+    <a target="_blank" href="forest.jpg">
+      <img src="forblinds/Blackchain-connections-illustration.jpg" alt="Forest" width="300" height="200">
+    </a>
+    <div class="desc">
+        <h2>Awesome Slideshow With Just CSS</h2>
+        <h5>Jan 18, 2019</h5>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <button>Read this</button>
+    </div>
+    </div>
+  
+  <div class="img">
+    <a target="_blank" href="lights.jpg">
+      <img src="forblinds/hackathon-660x400.png" alt="Northern Lights" width="300" height="200">
+    </a>
+    <div class="desc">
+      
+        <h2>What You Can Do With JavaScript!</h2>
+        <h5>Jan 18, 2019</h5>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <button>Read this</button>
+
+      </div>
+      </div>
+      <br>
+</div>
+  <button class="visit-blog"> Visit Clicka Blog </button>
+
+  </section>
+
+  
+
 
 <br/>
 <br/>

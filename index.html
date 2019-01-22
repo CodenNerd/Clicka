@@ -12,11 +12,12 @@
       * {
         box-sizing: border-box;
       }
-      body {
+      body, html {
         margin: 0px;
         padding: 0px;
         font-family: Calibri;
         color: grey;
+        padding: 0px;
       }
       #navbar {
         box-shadow: -5px 1px 5px grey;
@@ -104,6 +105,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+        background-attachment: fixed;
         min-height: 700px;
         min-width: 100%;
         padding: 0px;
@@ -114,7 +116,7 @@
       #top-space {
         min-height: 15px;
       }
-      #welcome h1 {
+      #welcome h1{
         color: lightgrey;
         font-size: 60px;
         font-weight: bolder;
@@ -369,6 +371,101 @@ justify-content:center;
   background: rgb(2, 87, 121);
   color: white;
 }
+
+#subscribe{
+  background: url("forblinds/article_deepcoder.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 300px;
+}
+
+.subscribe-overlay{
+  background: rgba(0, 0, 0, 0.895);
+  position: relative;
+  top: 0px;
+  left:0px;
+  min-height: 300px;
+  color: lightgrey;
+        font-size: 40px;
+        font-weight: bolder;
+        padding: 30px;
+        display: flex;
+}
+.subscribe-overlay>h1{
+  flex-basis: 100%;
+}
+.subscribe-overlay>span{
+}
+.subscribe-overlay>h1>span>input{
+  border: 0px;
+  background: transparent;
+  font-size: 20px;
+  padding: 5px 5px;
+  outline: none;
+  transition: 0.5s;
+  margin-top: 5px;
+  color: lightgrey;
+}
+.subscribe-overlay>h1>span:hover{
+
+}
+.subscribe-overlay>h1>span>button{
+  background: dimgrey;
+  border: 0px;
+  padding: 10px 15px;
+  color: grey;
+}
+.subscribe-overlay>h1>span{
+  border-bottom: 1px solid dimgrey;
+  padding: 0px;
+  height: 20px;
+}
+
+#footer{
+  color: rgb(54, 54, 54);
+}
+#footer>div{
+  display: flex;
+}
+#footer>div>div{
+  flex: 1;
+}
+#footer>span{
+  
+}
+footer{
+  background: rgb(43, 43, 43);
+}
+footer>div>div h3{
+  color: grey;
+}
+footer>div>div>div>div a{
+  text-decoration: none;
+  color: dimgrey;
+}
+
+.main-footer{
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+.main-footer>div{
+  flex: 1;
+  
+}
+.main-footer>div>div>ul{
+  list-style-type: none;
+  padding-left: 0px;
+}
+.main-footer>div>div>ul>li{
+  text-indent: 0;
+  margin: 10px 0px;
+}
+.footer-item{
+  text-align: left;
+  text-indent: 0;
+}
     </style>
   </head>
 
@@ -510,13 +607,106 @@ justify-content:center;
   <button class="visit-blog"> Visit Clicka Blog </button>
 
   </section>
+<br><br>
+  <section id="subscribe">
+<div class="subscribe-overlay">
+  <h1>Subscribe To Clicka Newsletter 
+     <span><input type="email" placeholder="Email"/><button>Subscribe</button></span>
+</h1>
 
-  
+</div>
+  </section>
 
 
-<br/>
-<br/>
-<br/>
+  <footer id="footer" class="footer">
+      <div class="container">
+
+          <div class="row">
+              <div class="main-footer">
+                  <div class="col-md-3 col-sm-6 col-xs-12">
+                      <div class="footer-item">
+                          <h3>PORTFOLIO</h3>
+                          <ul>
+                              <li><a href="#">Web Design</a></li>
+                              <li><a href="#">Brand & Identity</a></li>
+                              <li><a href="#">Mobile Design</a></li>
+                              <li><a href="#">Print</a></li>
+                              <li><a href="#">User Interface</a></li>
+                          </ul>
+                      </div>
+                  </div>
+
+                  <div class="col-md-3 col-sm-6 col-xs-12">
+                      <div class="footer-item">
+                          <h3>ABOUT</h3>
+                          <ul>
+                              <li><a href="#">The Company</a></li>
+                              <li><a href="#">History</a></li>
+                              <li><a href="#">Vision</a></li>
+
+                          </ul>
+                      </div>
+                  </div>
+
+
+                  <div class="col-md-3 col-sm-6 col-xs-12">
+                      <div class="footer-item">
+                          <h3>CONTACT</h3>
+                          <ul>
+                              <li><a href="#">Basic Info</a></li>
+                              <li><a href="#">Map</a></li>
+                              <li><a href="#">Conctact Form</a></li>
+
+                          </ul>
+                      </div>
+                  </div>
+
+              </div>
+
+              <div class="socio-copyright">
+
+                  <div class="social">
+                      <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                      <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                      <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                      <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
+                  </div>
+
+                  <p><center> <span>&copy; 2019 Clicka corporations. All Rights Reserved. <span>Designed with <i class="icon-heart"></i> by <a href="http://clicka.io/" target="_blank">Clicka.io</span></span></center></p>
+              </div>
+
+          </div>	
+      </div>
+
+  </footer>
+
+
+  <!--
+<section id="footer">
+  <div>
+  <div class="about-us">
+    <p>
+      Clicka is a tech startup company focusing in software development. It targets human resources and unexplored talents that abound in Africa. Hence, Clicka has started big in Nigeria and aims to soar through many other countries in Africa. 
+    </p>
+  </div>
+  <div class="services">
+    <ul>
+      <li><h4>Our Services</h4></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <div class="contact">
+    <ul>
+      <li>Our Board of Trusties</li>
+    </ul> 
+  </div>
+</div>
+<br><br>
+ <center> <span>&copy; 2019 Limelight corporations. All Rights Reserved. <span>Designed with <i class="icon-heart"></i> by <a href="http://clicka.io/" target="_blank">Clicka.io</span></span></center>
+</section>  -->
     <script
   src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script>
@@ -637,5 +827,4 @@ justify-content:center;
 
   // https://codepen.io/CodenNerd/pen/MZpPVr
 </script>
-  </body>
-</html>
+  </body></html>

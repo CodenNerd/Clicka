@@ -125,25 +125,7 @@
         font-size: 50px;
         font-weight: bolder;
       }
-      #levelsleft,
-      #levelsright {
-        display: inline-block;
-        min-height: 150px;
-        min-width: 100px;
-        position: relative;
-        top: -120px;
-        z-index: -1;
-      }
-      #levelsleft {
-        background: url("../new/levelsleft.png");
-        left: 15%;
-        float: left;
-      }
-      #levelsright {
-        background: url("../new/levelsright.png");
-        right: 15%;
-        float: right;
-      }
+      
       #discover {
         background: transparent;
         padding: 10px 50px;
@@ -160,7 +142,7 @@
         border: 1px solid white;
       }
       #down-arrow {
-        background-color: #ffffff;
+        background-color: #88caf10f;
         border: 2px dotted dimgray;
         width: 50px;
         height: 50px;
@@ -194,7 +176,7 @@
         flex-wrap: wrap;
       }
       #make-websites>.card{
-        padding: 0px 0px 0px 10%;
+        padding: 0px 2% 0px 10%;
       }
       #make-websites>.card:hover{
         animation: slide-left 1s ease-in-out alternate;
@@ -212,7 +194,6 @@
       }
       #make-app>.card>span img{
         box-sizing: border-box;
-        max-width: 100%;
       }
       #make-app-img-span{
         box-shadow: -150px 0px 200px 0px white inset;
@@ -283,12 +264,12 @@
       }
       .card-buttons, .desc>button, .visit-blog{
         border: 1px solid white;
-        margin: 20px auto;
+        margin: 40px auto;
         color: #ffffff;
         padding: 10px 10%;
         border-radius: 5px;
         outline: none;
-        height: 40px;
+        height: 50px;
       }
       .github-button, .desc>button, .visit-blog{
         background: rgb(2, 87, 121);
@@ -483,23 +464,56 @@ footer>div>div>div>div a{
 
 #clicka-video-div{
   width: 70%;
-  height: 400px;
+  height: 500px;
   background: white;
   border-radius: 5px;
   position: absolute;
-  top: 150px;
+  top: 100px;
   left: 15%;
   display: none;
 }
 #clicka-video-div>span.x{
-  float: right;
+  position: relative;
+ float: right;
   padding: 10px 20px;
   cursor: pointer;
+  z-index: +1;
 }
 #clicka-video-div>span.x:hover{
   background: red;
   color: white;
   border-top-right-radius: 5px;
+}
+#clicka-video-div>video{
+  width: 100%;
+  height: 100%;
+  margin-top: -38px;
+}
+
+@media screen and (max-width: 750px) {
+  
+    #make-websites>.card>span:last-child, #make-app-img-span, #make-code-img-span{
+        display: none;
+      }
+
+     
+      #make-websites>.card, #make-app>.card {
+        width: 100%;
+    padding: 0px 10%;
+    animation: slide-left 0s;
+    margin: 5px 0px;
+    box-shadow: 4px 1px 4px 0px grey;
+}
+#make-app>.card{
+      animation: slide-right 0s;
+
+}
+#from-our-blog>div{
+  flex-direction: column;
+}
+div.img{
+  width: auto;
+}
 }
 
     </style>
@@ -507,9 +521,13 @@ footer>div>div>div>div a{
     <script>
     const showVideoDiv = () =>{
       document.getElementById('clicka-video-div').style.display= "inline-block";
+      document.getElementById('clicka-video').play();
+
     }
     const hideVideoDiv = () =>{
       document.getElementById('clicka-video-div').style.display= "none";
+      document.getElementById('clicka-video').pause();
+
     }
     </script>
   </head>
@@ -544,10 +562,10 @@ footer>div>div>div>div a{
     </div>
     </section>
     <center>
-    <div id="clicka-video-div">
-      <span class="x" onclick="hideVideoDiv()">x</span>
-<video src="">
-  
+    <div id="clicka-video-div"><span class="x" onclick="hideVideoDiv()">x</span>
+
+<video id="clicka-video" src="forblinds/discover_clicka_temp.mp4" controls>
+
 </video>
 
     </div>
@@ -625,7 +643,7 @@ footer>div>div>div>div a{
     <div class="desc">
       <h2>Trends in Technology</h2>
       <h5>Jan 18, 2019</h5>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           <button>Read this</button>
 
     </div>
@@ -638,7 +656,7 @@ footer>div>div>div>div a{
     <div class="desc">
         <h2>Awesome Slideshow With Just CSS</h2>
         <h5>Jan 18, 2019</h5>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       <button>Read this</button>
     </div>
     </div>
@@ -651,7 +669,7 @@ footer>div>div>div>div a{
       
         <h2>What You Can Do With JavaScript!</h2>
         <h5>Jan 18, 2019</h5>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               <button>Read this</button>
 
       </div>

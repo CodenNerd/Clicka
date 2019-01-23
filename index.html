@@ -416,6 +416,11 @@ justify-content:center;
   padding: 10px 15px;
   color: grey;
 }
+
+.subscribe-overlay>h1>span>button:focus{
+  outline: white;
+  border: 1px solid lightgrey;
+}
 .subscribe-overlay>h1>span{
   border-bottom: 1px solid dimgrey;
   padding: 0px;
@@ -435,7 +440,8 @@ justify-content:center;
   
 }
 footer{
-  background: rgb(43, 43, 43);
+  background: black;
+  box-shadow: 0px -5px 10px grey ;
 }
 footer>div>div h3{
   color: grey;
@@ -462,11 +468,50 @@ footer>div>div>div>div a{
   text-indent: 0;
   margin: 10px 0px;
 }
+.main-footer>div>div>ul>li>a:hover{
+  font-style: oblique;
+}
 .footer-item{
   text-align: left;
   text-indent: 0;
 }
+.clicka-io{
+  color: darkorange;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+#clicka-video-div{
+  width: 70%;
+  height: 400px;
+  background: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 150px;
+  left: 15%;
+  display: none;
+}
+#clicka-video-div>span.x{
+  float: right;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+#clicka-video-div>span.x:hover{
+  background: red;
+  color: white;
+  border-top-right-radius: 5px;
+}
+
     </style>
+
+    <script>
+    const showVideoDiv = () =>{
+      document.getElementById('clicka-video-div').style.display= "inline-block";
+    }
+    const hideVideoDiv = () =>{
+      document.getElementById('clicka-video-div').style.display= "none";
+    }
+    </script>
   </head>
 
   <body>
@@ -492,12 +537,21 @@ footer>div>div>div>div a{
         You're just a <span id="logo" class="logo">Click<b> a</b></span>way from the <span class="digital">digital</span> level
       </h1>
       <span id="levelsleft"> </span> <span id="levelsright"> </span>
-      <button id="discover">Discover Click<b>a</b></button>
+      <button id="discover" onclick="showVideoDiv()">Discover Click<b>a</b></button>
             <br /><br /><br /><br /><br />
       <button id="down-arrow" class="da">v</button>
 
     </div>
     </section>
+    <center>
+    <div id="clicka-video-div">
+      <span class="x" onclick="hideVideoDiv()">x</span>
+<video src="">
+  
+</video>
+
+    </div>
+    </center>
     <section id="make-websites" class="www"><div class="card">
       <span>
       <h1 class="what-we-do">GET BEAUTIFUL STANDARD WEBSITES</h1>
@@ -618,9 +672,9 @@ footer>div>div>div>div a{
   </section>
 
 
-  <footer id="footer" class="footer">
-      <div class="container">
+  <footer id="footer" class="footer"><br><br>
 
+      <div class="container">
           <div class="row">
               <div class="main-footer">
                   <div class="col-md-3 col-sm-6 col-xs-12">
@@ -630,8 +684,9 @@ footer>div>div>div>div a{
                               <li><a href="#">Web Design</a></li>
                               <li><a href="#">Brand & Identity</a></li>
                               <li><a href="#">Mobile Design</a></li>
-                              <li><a href="#">Print</a></li>
-                              <li><a href="#">User Interface</a></li>
+                              <li><a href="#">Clicka Resources</a></li>
+                              <li><a href="#">Our GitHub Projects</a></li>
+                              <li><a href="#">Our Codepen Projects</a></li>
                           </ul>
                       </div>
                   </div>
@@ -641,7 +696,7 @@ footer>div>div>div>div a{
                           <h3>ABOUT</h3>
                           <ul>
                               <li><a href="#">The Company</a></li>
-                              <li><a href="#">History</a></li>
+                              <li><a href="#">Clicka Services</a></li>
                               <li><a href="#">Vision</a></li>
 
                           </ul>
@@ -655,7 +710,7 @@ footer>div>div>div>div a{
                           <ul>
                               <li><a href="#">Basic Info</a></li>
                               <li><a href="#">Map</a></li>
-                              <li><a href="#">Conctact Form</a></li>
+                              <li><a href="#">Contact Form</a></li>
 
                           </ul>
                       </div>
@@ -672,7 +727,7 @@ footer>div>div>div>div a{
                       <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
                   </div>
 
-                  <p><center> <span>&copy; 2019 Clicka corporations. All Rights Reserved. <span>Designed with <i class="icon-heart"></i> by <a href="http://clicka.io/" target="_blank">Clicka.io</span></span></center></p>
+                  <p><center> <span>&copy; 2019 Clicka corporations. All Rights Reserved. <span>Designed with <i class="icon-heart"></i> by <a class="clicka-io" href="http://clicka.io/" target="_blank">Clicka.io</span></span></center></p>
               </div>
 
           </div>	

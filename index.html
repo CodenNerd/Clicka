@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Welcome to Clicka</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body, html {
+        margin: 0px;
+        padding: 0px;
+        font-family: Calibri;
+        color: grey;
+        padding: 0px;
+      }
+      #navbar {
+        box-shadow: -5px 1px 5px grey;
+        min-height: 60px;
+        width: 100%;
+        padding-left: 3%;
+        vertical-align: middle;
+        position: fixed;
+        background: #ffffff;
+        z-index: 1;
+      }
+      .logo {
+        font-size: 30px;
+        color: grey;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 10px auto;
+      }
+      .logo > b {
+        color: darkorange;
+        font-weight: bolder;
+      }
+      .logo > i {
+        color: darkgreen;
+      }
+      .q-button {
+        font-size: 20px;
+        background-color: darkorange;
+        color: white;
+        padding: 20px 50px;
+        float: right;
+        font-weight: bolder;
+        cursor: default;
+      }
+      .q-button:hover {
+        opacity: 0.9;
+      }
+
+      .q-button-drop {
+        background-color: white;
+        max-width: 200px;
+        padding: 0px;
+        box-shadow: 2px 2px 3px grey;
+        position: absolute;
+        right: 0px;
+        top: 65px;
+        display: none;
+      }
+      .q-button-wrapper:hover .q-button-drop {
+        display: block;
+      }
+      .q-button-drop > a {
+        display: block;
+        text-decoration: none;
+        color: grey;
+        padding: 5px 35px;
+        border-bottom: 1px solid lightgrey;
+      }
+      .q-button-drop > a:hover {
+        background-color: rgb(241, 241, 241);
+      }
+      .reg {
+        float: right;
+        margin-right: 5%;
+        margin-top: 25px;
+      }
+      .reg > a {
+        color: grey;
+        text-decoration: none;
+        display: inline-block;
+        margin-right: 20px;
+      }
+      .reg > a:hover {
+        color: dimgray;
+        font-weight: bold;
+      }
+      #welcome-overlay {
+        width: 100%;
+       min-height: 700px;
+        background: rgba(0,0,0,0.8);
+        padding-top: 200px;
+     }
+      #welcome {
+        background: url("./forblinds/bulbs.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+        min-height: 700px;
+        min-width: 100%;
+        padding: 0px;
+        text-align: center;
+        transition: 2s;
+      }
+      
+      #top-space {
+        min-height: 15px;
+      }
+      #welcome h1{
+        color: lightgrey;
+        font-size: 60px;
+        font-weight: bolder;
+      }
+      #logo {
+        font-size: 50px;
+        font-weight: bolder;
+      }
+      #levelsleft,
+      #levelsright {
+        display: inline-block;
+        min-height: 150px;
+        min-width: 100px;
+        position: relative;
+        top: -120px;
+        z-index: -1;
+      }
+      #levelsleft {
+        background: url("../new/levelsleft.png");
+        left: 15%;
+        float: left;
+      }
+      #levelsright {
+        background: url("../new/levelsright.png");
+        right: 15%;
+        float: right;
+      }
+      #discover {
+        background: transparent;
+        padding: 10px 50px;
+        border: 1px solid grey;
+        border-radius: 3px;
+        outline: none;
+        color: grey;
+        transition: 1s;
+        z-index: +1;
+      }
+      #discover:hover {
+        background: darkorange;
+        color: white;
+        border: 1px solid white;
+      }
+      #down-arrow {
+        background-color: #ffffff;
+        border: 2px dotted dimgray;
+        width: 50px;
+        height: 50px;
+        margin: 30px;
+        border-radius: 100%;
+        box-shadow: 5px 5px 10px black;
+        color: grey;
+        outline: none;
+        transition: 5s;
+      }
+      #down-arrow:hover {
+        animation: rotate-span 1s ease-out forwards;
+      }
+
+      @keyframes rotate-span{
+        from{ transform: rotateZ(0deg); box-shadow: 0px 0px 0px transparent}
+        to{ transform: rotateZ(360deg); box-shadow: 5px 5px 10px black;}
+      }
+      #make-websites {
+        min-height: 500px;
+        background-color: rgb(250, 250, 250);
+      }
+
+      section>.card{
+        background: white;
+        box-shadow: 4px 1px 4px grey;
+        min-height: 500px;
+        display: flex;
+        margin-top:5px;
+        width: 90%;
+        flex-wrap: wrap;
+      }
+      #make-websites>.card{
+        padding: 0px 0px 0px 10%;
+      }
+      #make-websites>.card:hover{
+        animation: slide-left 1s ease-in-out alternate;
+      }
+      #make-app>.card{
+        margin-left: 10%;
+        box-shadow: -4px 1px 4px grey;
+        padding: 0px 10% 0px 0px;
+
+      }
+
+      #make-app>.card:hover{
+        animation: slide-right 1s ease-in-out alternate;
+
+      }
+      #make-app>.card>span img{
+        box-sizing: border-box;
+        max-width: 100%;
+      }
+      #make-app-img-span{
+        box-shadow: -150px 0px 200px 0px white inset;
+        background-image: url('forblinds/dataprotection.jpg');
+        background-size: cover;
+        background-position: center;
+        flex:2;
+      }
+      #make-code-img-span{
+        box-shadow: -150px 0px 200px 0px white inset;
+        background-image: url('forblinds/coder.jpg');
+        background-size: cover;
+        background-position: center;
+        flex:2;
+      }
+      @keyframes slide-left{
+      0%{
+          margin-left: 0px;
+        }
+      50%{
+        margin-left: -20px;
+      }
+      100%{
+        margin-left: 0px;
+      }
+      }
+
+      @keyframes slide-right{
+      0%{
+          margin-right: 0px;
+          transform: translateX(0px)
+        }
+      50%{
+        transform: translateX(+20px);
+      }
+      100%{
+        transform: translateX(0px)
+        }
+      }
+      section>.card>span>h1{
+        flex: 1;
+        font-weight: lighter;
+        font-size: 30px;
+        padding-bottom:10px;
+        border-bottom: 1px solid lightgrey;
+        background: -webkit-linear-gradient(left, skyblue , darkorange);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      section>.card>span>span{
+        flex: 4;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      #make-websites>.card>span>span>p,  #make-app>.card>span>span>p{
+        color: grey;
+        font-style: oblique;
+        text-align: justify;
+      }
+      section>.card>span{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      section>.card>span>img{
+        flex: 1;
+      }
+      .card-buttons, .desc>button, .visit-blog{
+        border: 1px solid white;
+        margin: 20px auto;
+        color: #ffffff;
+        padding: 10px 10%;
+        border-radius: 5px;
+        outline: none;
+        height: 40px;
+      }
+      .github-button, .desc>button, .visit-blog{
+        background: rgb(2, 87, 121);
+      }
+      .order-button{
+        background:darkorange;
+      }
+      .github-button:hover, .order-button:hover{
+        animation: wave-github-button 0.4s ease-in-out forwards;
+      }
+      @keyframes wave-github-button{
+        0%{ background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8), dimgray)}
+        20%{ background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8), dimgray,rgba(0, 0, 0, 0.8))}
+        40%{ background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.8), dimgray,rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8))}
+        60%{ background: -webkit-linear-gradient(left, dimgray, rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8))}
+        80%{ background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.8), dimgray,rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8))}
+        100%{ background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8), dimgray,rgba(0, 0, 0, 0.8))}
+      }
+
+      #canvas {
+            background: white;
+            width: 100%;
+           height: 500px;
+      }
+      #canvas-span{
+        flex: 2;
+      }
+
+      div.img {
+    margin: 25px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 25%;
+}
+
+div.img:hover {
+    border: 1px dotted grey;
+}
+
+div.img img {
+    width: 100%;
+    height: 200px;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: justify;
+}
+
+#from-our-blog{
+  text-align: center;
+}
+#from-our-blog>h1{
+  flex: 1;
+}
+#from-our-blog>div{
+display: flex;
+justify-content:center;
+}
+
+.desc>button{
+  float: right;
+  border: 1px solid rgb(2, 87, 121);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.desc>button:hover, .visit-blog{
+  background: transparent;
+  color: rgb(2, 87, 121);
+}
+.visit-blog{
+  width: 50%;
+  border: 1px solid rgb(2, 87, 121);
+  cursor: pointer;
+  box-shadow: 5px 5px 20px grey;
+  transition: 0.5s;
+}
+
+.visit-blog:hover{
+  background: rgb(2, 87, 121);
+  color: white;
+}
+
+#subscribe{
+  background: url("forblinds/article_deepcoder.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 300px;
+}
+
+.subscribe-overlay{
+  background: rgba(0, 0, 0, 0.895);
+  position: relative;
+  top: 0px;
+  left:0px;
+  min-height: 300px;
+  color: lightgrey;
+        font-size: 40px;
+        font-weight: bolder;
+        padding: 30px;
+        display: flex;
+}
+.subscribe-overlay>h1{
+  flex-basis: 100%;
+}
+.subscribe-overlay>span{
+}
+.subscribe-overlay>h1>span>input{
+  border: 0px;
+  background: transparent;
+  font-size: 20px;
+  padding: 5px 5px;
+  outline: none;
+  transition: 0.5s;
+  margin-top: 5px;
+  color: lightgrey;
+}
+.subscribe-overlay>h1>span:hover{
+
+}
+.subscribe-overlay>h1>span>button{
+  background: dimgrey;
+  border: 0px;
+  padding: 10px 15px;
+  color: grey;
+}
+
+.subscribe-overlay>h1>span>button:focus{
+  outline: white;
+  border: 1px solid lightgrey;
+}
+.subscribe-overlay>h1>span{
+  border-bottom: 1px solid dimgrey;
+  padding: 0px;
+  height: 20px;
+}
+
+#footer{
+  color: rgb(54, 54, 54);
+}
+#footer>div{
+  display: flex;
+}
+#footer>div>div{
+  flex: 1;
+}
+#footer>span{
+  
+}
+footer{
+  background: black;
+  box-shadow: 0px -5px 10px grey ;
+}
+footer>div>div h3{
+  color: grey;
+}
+footer>div>div>div>div a{
+  text-decoration: none;
+  color: dimgrey;
+}
+
+.main-footer{
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+.main-footer>div{
+  flex: 1;
+  
+}
+.main-footer>div>div>ul{
+  list-style-type: none;
+  padding-left: 0px;
+}
+.main-footer>div>div>ul>li{
+  text-indent: 0;
+  margin: 10px 0px;
+}
+.main-footer>div>div>ul>li>a:hover{
+  font-style: oblique;
+}
+.footer-item{
+  text-align: left;
+  text-indent: 0;
+}
+.clicka-io{
+  color: darkorange;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+#clicka-video-div{
+  width: 70%;
+  height: 400px;
+  background: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 150px;
+  left: 15%;
+  display: none;
+}
+#clicka-video-div>span.x{
+  float: right;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+#clicka-video-div>span.x:hover{
+  background: red;
+  color: white;
+  border-top-right-radius: 5px;
+}
+
+    </style>
+
+    <script>
+    const showVideoDiv = () =>{
+      document.getElementById('clicka-video-div').style.display= "inline-block";
+    }
+    const hideVideoDiv = () =>{
+      document.getElementById('clicka-video-div').style.display= "none";
+    }
+    </script>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <span class="logo"> Click<b>a</b> </span>
+
+      <span class="q-button-wrapper">
+        <span class="q-button"> Quick Order </span>
+        <div class="q-button-drop">
+          <a href=""> Order a Website</a> <a href=""> Order an App</a>
+          <a href=""> Order Other Software</a>
+          <a href=""> Order Code Snippets</a>
+        </div>
+      </span>
+
+      <span class="reg"> <a href="#">Register</a> <a href="#">Login</a> </span>
+    </div>
+    <div id="top-space"></div>
+    
+    <section id="welcome">
+      <div id="welcome-overlay">
+<h1>
+        You're just a <span id="logo" class="logo">Click<b> a</b></span>way from the <span class="digital">digital</span> level
+      </h1>
+      <span id="levelsleft"> </span> <span id="levelsright"> </span>
+      <button id="discover" onclick="showVideoDiv()">Discover Click<b>a</b></button>
+            <br /><br /><br /><br /><br />
+      <button id="down-arrow" class="da">v</button>
+
+    </div>
+    </section>
+    <center>
+    <div id="clicka-video-div">
+      <span class="x" onclick="hideVideoDiv()">x</span>
+<video src="">
+  
+</video>
+
+    </div>
+    </center>
+    <section id="make-websites" class="www"><div class="card">
+      <span>
+      <h1 class="what-we-do">GET BEAUTIFUL STANDARD WEBSITES</h1>
+      <span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></span>
+      <span><button class="card-buttons github-button">Our GitHub</button><button class="card-buttons order-button"> Order A Website</button></span>
+    </span>
+      <span>
+        <img src="forblinds/getwireddb.jpg" alt="Make Websites">
+      </span>
+      </div>
+    </section>
+
+    <section id="make-app" class="www"><div class="card">
+        <span class="img-span" id="make-app-img-span">
+          <!--  <img src="forblinds/dataprotection.jpg" alt="Make Websites"> -->
+          </span>
+      <span>
+      <h1 class="what-we-do">WE'LL MAKE YOU THE APPS YOU WANT</h1>
+      <span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></span>
+      <span><button class="card-buttons github-button">Our GitHub</button><button class="card-buttons order-button"> Order A Mobile App</button></span>
+    </span>
+      
+      </div>
+    </section>
+
+    <section id="make-websites" class="www"><div class="card">
+      <span>
+      <h1 class="what-we-do">MAKE OTHER SOFTWARE WITH US</h1>
+      <span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></span>
+      <span><button class="card-buttons github-button">Our GitHub</button><button class="card-buttons order-button"> Order A Website</button></span>
+    </span>
+      <span id="canvas-span">
+        <canvas id="canvas" width="800" height="550px">
+
+        </canvas>
+      </span>
+      </div>
+    </section>
+
+    <section id="make-app" class="www"><div class="card">
+      <span class="img-span" id="make-code-img-span">
+        </span>
+    <span>
+    <h1 class="what-we-do">WE WILL WRITE CODE SNIPPETS FOR YOU</h1>
+    <span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></span>
+    <span><button class="card-buttons github-button">Our GitHub</button><button class="card-buttons order-button"> Order A Mobile App</button></span>
+  </span>
+    
+    </div>
+  </section>
+    
+    <!--
+    <section id="make-websitess">
+      <h1 class="what-we-do">Create your own Android Applications with us</h1>
+      <span>
+        <img src="" alt="Make Apps">
+      </span>
+    </section>
+
+  -->
+<br/><br/><br/>
+  <section id="from-our-blog">
+    <h1>
+      Latest From Clicka Blog
+    </h1>
+<div>
+  <div class="img">
+    <a target="_blank" href="fjords.jpg">
+      <img src="forblinds/galaxy.jpg" alt="Fjords" width="300" height="200">
+    </a>
+    <div class="desc">
+      <h2>Trends in Technology</h2>
+      <h5>Jan 18, 2019</h5>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <button>Read this</button>
+
+    </div>
+    </div>
+  
+  <div class="img">
+    <a target="_blank" href="forest.jpg">
+      <img src="forblinds/Blackchain-connections-illustration.jpg" alt="Forest" width="300" height="200">
+    </a>
+    <div class="desc">
+        <h2>Awesome Slideshow With Just CSS</h2>
+        <h5>Jan 18, 2019</h5>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <button>Read this</button>
+    </div>
+    </div>
+  
+  <div class="img">
+    <a target="_blank" href="lights.jpg">
+      <img src="forblinds/hackathon-660x400.png" alt="Northern Lights" width="300" height="200">
+    </a>
+    <div class="desc">
+      
+        <h2>What You Can Do With JavaScript!</h2>
+        <h5>Jan 18, 2019</h5>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <button>Read this</button>
+
+      </div>
+      </div>
+      <br>
+</div>
+  <button class="visit-blog"> Visit Clicka Blog </button>
+
+  </section>
+<br><br>
+  <section id="subscribe">
+<div class="subscribe-overlay">
+  <h1>Subscribe To Clicka Newsletter 
+     <span><input type="email" placeholder="Email"/><button>Subscribe</button></span>
+</h1>
+
+</div>
+  </section>
+
+
+  <footer id="footer" class="footer"><br><br>
+
+      <div class="container">
+          <div class="row">
+              <div class="main-footer">
+                  <div class="col-md-3 col-sm-6 col-xs-12">
+                      <div class="footer-item">
+                          <h3>PORTFOLIO</h3>
+                          <ul>
+                              <li><a href="#">Web Design</a></li>
+                              <li><a href="#">Brand & Identity</a></li>
+                              <li><a href="#">Mobile Design</a></li>
+                              <li><a href="#">Clicka Resources</a></li>
+                              <li><a href="#">Our GitHub Projects</a></li>
+                              <li><a href="#">Our Codepen Projects</a></li>
+                          </ul>
+                      </div>
+                  </div>
+
+                  <div class="col-md-3 col-sm-6 col-xs-12">
+                      <div class="footer-item">
+                          <h3>ABOUT</h3>
+                          <ul>
+                              <li><a href="#">The Company</a></li>
+                              <li><a href="#">Clicka Services</a></li>
+                              <li><a href="#">Vision</a></li>
+
+                          </ul>
+                      </div>
+                  </div>
+
+
+                  <div class="col-md-3 col-sm-6 col-xs-12">
+                      <div class="footer-item">
+                          <h3>CONTACT</h3>
+                          <ul>
+                              <li><a href="#">Basic Info</a></li>
+                              <li><a href="#">Map</a></li>
+                              <li><a href="#">Contact Form</a></li>
+
+                          </ul>
+                      </div>
+                  </div>
+
+              </div>
+
+              <div class="socio-copyright">
+
+                  <div class="social">
+                      <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                      <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                      <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                      <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
+                  </div>
+
+                  <p><center> <span>&copy; 2019 Clicka corporations. All Rights Reserved. <span>Designed with <i class="icon-heart"></i> by <a class="clicka-io" href="http://clicka.io/" target="_blank">Clicka.io</span></span></center></p>
+              </div>
+
+          </div>	
+      </div>
+
+  </footer>
+
+
+  <!--
+<section id="footer">
+  <div>
+  <div class="about-us">
+    <p>
+      Clicka is a tech startup company focusing in software development. It targets human resources and unexplored talents that abound in Africa. Hence, Clicka has started big in Nigeria and aims to soar through many other countries in Africa. 
+    </p>
+  </div>
+  <div class="services">
+    <ul>
+      <li><h4>Our Services</h4></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <div class="contact">
+    <ul>
+      <li>Our Board of Trusties</li>
+    </ul> 
+  </div>
+</div>
+<br><br>
+ <center> <span>&copy; 2019 Limelight corporations. All Rights Reserved. <span>Designed with <i class="icon-heart"></i> by <a href="http://clicka.io/" target="_blank">Clicka.io</span></span></center>
+</section>  -->
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+  $(document).ready(function(){
+      $('.da').click(function(){
+        $('html, body').animate({
+          scrollTop: $(".www").offset().top
+        }, 2000);
+        })
+    });
+  
+  </script>
+<script>
+
+  let c = document.getElementById("canvas").getContext("2d");
+
+  const arc = () => {
+      let d = new Date();
+      let sec = d.getSeconds();
+      sec = sec === 0 ? 0.01 : sec;
+      let min = d.getMinutes();
+      min = min === 0 ? 0.01 : min;
+      let hr = d.getHours();
+      let pmhr = hr - 12;
+      hr = hr > 12 ? pmhr : hr;
+      hr = hr === 0 ? 0.01 : hr;
+      c.clearRect(0, 0, c.canvas.width, c.canvas.height);
+      c.lineCap = "round";
+      c.lineWidth = 10;
+
+      c.beginPath();
+      c.strokeStyle = "lightgrey";
+      c.arc(400, 250, 200, 1.5 * Math.PI, (sec * (Math.PI / 30)) + (1.5 * Math.PI), false);
+      c.stroke();
+
+      c.beginPath();
+      c.strokeStyle = "grey";
+      c.arc(400, 250, 180, 1.5 * Math.PI, (min * (Math.PI / 30)) + (1.5 * Math.PI), false);
+      c.stroke();
+
+      c.beginPath();
+      c.strokeStyle = "cadetblue";
+      c.arc(400, 250, 160, 1.5 * Math.PI, (hr * (Math.PI / 6)) + (1.5 * Math.PI), false);
+      c.stroke();
+
+      // clock center
+      c.beginPath();
+      c.strokeStyle = "orange";
+      c.arc(400, 250, 10, 0, 2 * Math.PI, false);
+      c.stroke();
+      // hours hand
+      c.translate(400, 250);
+      c.rotate((hr * (Math.PI / 6)) + (2 * 1.5 * (Math.PI)));
+      c.translate(-400, -250);
+
+
+      c.beginPath();
+      c.fillStyle = "cadetblue";
+      c.fillRect(395, 230, 10, 135);
+
+      c.translate(400, 250);
+      c.rotate(-(hr * (Math.PI / 6)) - (2 * 1.5 * (Math.PI)));
+      c.translate(-400, -250);
+
+      // minutes hand
+      c.translate(400, 250);
+      c.rotate((min * (Math.PI / 30)) + (2 * 1.5 * (Math.PI)));
+      c.translate(-400, -250);
+
+      c.beginPath();
+      c.fillStyle = "grey";
+      c.fillRect(397, 232, 6, 165);
+
+      c.translate(400, 250);
+      c.rotate(-(min * (Math.PI / 30)) - (2 * 1.5 * (Math.PI)));
+      c.translate(-400, -250);
+
+      // seconds hand
+      c.translate(400, 250);
+      c.rotate((sec * (Math.PI / 30)) + (2 * 1.5 * (Math.PI)));
+      c.translate(-400, -250);
+
+      c.beginPath();
+      c.fillStyle = "lightgrey";
+
+      c.fillRect(399, 210, 2, 190);
+      c.translate(400, 250);
+      c.rotate(-(sec * (Math.PI / 30)) - (2 * 1.5 * (Math.PI)));
+      c.translate(-400, -250);
+
+
+      // clock center
+      c.beginPath();
+      c.strokeStyle = "white";
+      c.arc(400, 250, 4, 0, 2 * Math.PI, false);
+      c.stroke();
+
+
+      const action = (e) => {
+          let mouseX = e.clientX - 200;
+          let mouseY = e.clientY - 5;
+          c.beginPath();
+          c.strokeStyle = "rgb(66, 35, 2)";
+          c.arc(mouseX, mouseY, 0.01, 0, 0.05, false);
+          c.font = "15px Calibri";
+          c.fillStyle = "orange";
+
+          c.fillText("Clicka Clock", mouseX, mouseY)
+          //c.stroke();
+          //setTimeout(action(e),900);
+      };
+      let mousePos = document.addEventListener('click', action);
+
+  }
+  let interval = setInterval(arc, 1000);
+  window.onload = interval;
+
+
+  // https://codepen.io/CodenNerd/pen/MZpPVr
+</script>
+  </body></html>
